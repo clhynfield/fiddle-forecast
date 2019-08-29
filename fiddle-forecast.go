@@ -10,7 +10,6 @@ import (
 )
 
 var api *forecast.API
-var debug bool
 
 func init() {
 	api = forecast.New(
@@ -18,12 +17,6 @@ func init() {
 		os.Getenv("FORECAST_ID"),
 		os.Getenv("FORECAST_TOKEN"),
 	)
-}
-
-func debugMsg(message string) {
-	if debug {
-		fmt.Println("DEBUG: ", message)
-	}
 }
 
 func rolesInclude(roles []string, rolesRequired []string) bool {
@@ -144,6 +137,6 @@ func pcfsPeopleAssignedNowIDs() []int {
 }
 
 func main() {
-	debug = true
+	fmt.Println("Folks on the beach:")
 	printUnassignedPlatformPeople()
 }
